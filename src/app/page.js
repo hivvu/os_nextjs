@@ -1,9 +1,9 @@
-import Image from "next/image";
+import LatestPosts from '@/components/LatestPosts'
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold">Odds Scanner</h1>
+    <main className="flex items-center justify-center">
+      <LatestPosts />
     </main>
   );
 }
