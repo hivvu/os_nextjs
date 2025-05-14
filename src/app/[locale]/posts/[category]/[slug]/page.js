@@ -2,7 +2,7 @@ import { wpFetch } from '@/lib/wp-fetch';
 import Image from 'next/image';
 import React from 'react';
 
-// const SUPPORTED_LOCALES = ['br', 'pt', 'fr']; 
+// const SUPPORTED_LOCALES = ['uk', 'br', 'pt', 'fr', 'es', 'it', 'us']; 
 
 // export async function generateStaticParams() {
 //   return SUPPORTED_LOCALES.map(locale => ({ locale }));
@@ -11,21 +11,16 @@ import React from 'react';
 export default async function ArticlePage({ params }) {
   const { locale, category, slug } = await params;
 
-  // console.log({ locale, category, slug });
-
   let data = [];
 
   try {
     data = await wpFetch(locale, `/os/api/post?slug=${slug}`, {
-    // data = await wpFetch(locale, '/os/api/post?slug=https://cms-sandbox.oddscanner.xyz/br/artigos/noticias/anthony-taylor-e-um-dos-arbitros-com-mais-cartoes-aplicados-na-premier-league-confira-o-top-10', {
       next: { revalidate: 60 },
     });
 
   } catch (err) {
     console.error('Failed to fetch articles:', err);
   }
-
-// console.log(data);
 
   return (
     <div className="p-7">

@@ -11,7 +11,6 @@ export async function generateStaticParams() {
 }
 
 export default async function ArticlesPage() {
-  console.log("ENTROU NA PAGE");
 
   const locale = await getLocale();
 
