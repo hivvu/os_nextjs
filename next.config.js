@@ -2,7 +2,9 @@ const createNextIntlPlugin = require('next-intl/plugin');
 
 const withNextIntl = createNextIntlPlugin({
   locales: ['uk', 'br', 'pt', 'fr', 'es', 'it', 'us'],
-  defaultLocale: 'uk'
+  defaultLocale: 'uk',
+  localePrefix: 'as-needed', // or 'always'
+  localeDetection: false 
 });
 
 /** @type {import('next').NextConfig} */

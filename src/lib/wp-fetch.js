@@ -8,19 +8,25 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(`${process.env.CMS_USER}:${process.en
  * @param {object} options - Configurações adicionais do fetch
  */
 export async function wpFetch(locale, endpoint, options = {}) {
-  const res = await fetch(`${CMS_URL}/${locale}/wp-json${endpoint}`, {
-    ...options,
-    headers: {
-      ...(options.headers || {}),
-      Authorization: AUTH_HEADER,
-    },
-  });
 
-console.log(`${CMS_URL}/${locale}/wp-json/${endpoint}`);
+    
+    let endpointUrl = locale == 'uk' ? `${CMS_URL}/wp-json${endpoint}` : `${CMS_URL}/${locale}/wp-json${endpoint}`;
 
-  if (!res.ok) {
-    throw new Error(`Error on fetching ${endpoint}: ${res.status}`);
-  }
+    // let endpointUrl = 'https://cms-sandbox.oddscanner.xyz/wp-json/os/api/posts?per_page=100'
 
-  return res.json();
+    const res = await fetch(endpointUrl, {
+        ...options,
+        headers: {
+            ...(options.headers || {}),
+            Authorization: AUTH_HEADER,
+        },
+    });
+
+    console.log(`Endpoint: ${endpointUrl}`);
+
+    if (!res.ok) {
+        throw new Error(`Error on fetching ${endpoint}: ${res.status}`);
+    }
+
+    return res.json();
 }
