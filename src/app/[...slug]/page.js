@@ -4,7 +4,7 @@ import CalculatorTemplate from '@/components/templates/CalculatorTemplate';
 import PageTemplate from '@/components/templates/PageTemplate';
 import BettingTemplate from '@/components/templates/BettingTemplate';
 import TermTemplate from '@/components/templates/TermTemplate';
-import HomepageTemplate from '@/components/templates/TermTemplate';
+import HomepageTemplate from '@/components/templates/HomepageTemplate';
 import { wpFetch } from '@/lib/wp-fetch';
 
 
@@ -21,7 +21,7 @@ export default async function Page({ params }) {
     if (slugSegments.length > 0 && SUPPORTED_LOCALES.includes(slugSegments[0])) {
         locale = slugSegments[0];
     }
-    
+
 
     /**
      LINKS PARA TESTAR
@@ -48,6 +48,7 @@ export default async function Page({ params }) {
 
     switch (data.type) {
         case "homepage":
+            console.log('Homepage');
             return <HomepageTemplate data={data} />;
         case "post":
             return <PostTemplate data={data} />;
@@ -56,6 +57,7 @@ export default async function Page({ params }) {
         case "page":
             return <PageTemplate data={data} />;
         case "term":
+            console.log('term');
             return <TermTemplate data={data} />;
         case "betting":
             return <BettingTemplate data={data} />;
