@@ -1,4 +1,7 @@
-export default function TermTemplate({ data }) {
+import LatestArticles from "../LatestArticles";
+
+export default async function TermTemplate({ data }) {
+
     return (
       <article>
         
@@ -16,6 +19,7 @@ export default function TermTemplate({ data }) {
             </div>
         </details>
 
+        <LatestArticles id={data.id} locale={data.locale} />
 
       </article>
     );

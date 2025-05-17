@@ -1,5 +1,6 @@
 export default function HomepageTemplate({ data }) {
-    return (
+    
+  return (
       <article>
         
         <div className="text-6xl">HOMEPAGE TEMPLATE</div>
