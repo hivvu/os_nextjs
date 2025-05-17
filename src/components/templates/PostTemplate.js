@@ -7,7 +7,22 @@ export default async function PostTemplate({ data, locale }) {
       next: { revalidate: 60 },
     });
     
+    const schema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      name: data.title,
+      image: "image",
+      description: data.description,
+    }
+
     return (
+      <>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       <div className="p-7">
         <h1 className="text-3xl font-bold mb-6">{data.title}</h1>
 
@@ -73,6 +88,7 @@ export default async function PostTemplate({ data, locale }) {
         </div>
         
       </div>
+      </>
     );
   }
   
