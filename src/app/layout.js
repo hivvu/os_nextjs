@@ -1,33 +1,29 @@
+/*
+  Layout Component
+  - Applies global styles and meta tags
+  - Retrieves request headers to set the HTML language attribute dynamically
+  - Wraps content with Header and Footer components
+*/
 import "@/styles/globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import {NextIntlClientProvider, hasLocale} from 'next-intl';
-import {notFound} from 'next/navigation';
-import {routing} from '@/i18n/routing';
-
-export const metadata = {
-  title: "Odds Scanner UK",
-  description: "Odds Scanner main website",
-};
-
-const footerData = {
-  sitename: "Odds Scanner",
-  copyright: "© 2025 Odds Scanner. Todos os direitos reservados.",
-};
+import { headers } from 'next/headers';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 
-export default async function LocaleLayout({ children, params }) {
-  // Ensure that the incoming `locale` is valid
-  const { locale } = await params;
-  // if (!hasLocale(routing.locales, locale)) {
-  //   notFound();
-  // }
- 
+export default async function Layout({ children, params }) {
+  // Retrieve all request headers using Next.js headers() helper
+  const headersList = await headers();
+  // Extract the 'x-locale' header to set the document language
+  const lang = headersList.get('x-locale');
+
   return (
-    <html lang={locale}>
-      <meta name="apple-mobile-web-app-title" content="Odds Scanner" />
+    <html lang={lang}>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Header />
+
+        {children}
+
+        {/* <Footer /> */}
       </body>
     </html>
   );

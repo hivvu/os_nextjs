@@ -11,7 +11,7 @@
 export function transformLink(url) {
     const isLocal = process.env.NODE_ENV === 'development';
 
-    // Temporary force to test build
+    // Temporary: Force the URL to test the build and have links on local environment
     // const isLocal = true;
 
     if (!isLocal) return url;
