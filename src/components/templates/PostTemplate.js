@@ -17,7 +17,7 @@ export default async function PostTemplate({ data, locale }) {
 
     return (
       <>
-
+      {/* Schemas */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

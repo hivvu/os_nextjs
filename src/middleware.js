@@ -11,6 +11,8 @@ export function middleware(request) {
 
   const response = NextResponse.next();
   response.headers.set('x-locale', locale);
+
+  
   return response;
 }
 

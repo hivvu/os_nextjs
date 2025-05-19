@@ -1,4 +1,5 @@
-export default function BettingTemplate({ data }) {
+export default async function BettingTemplate({ data }) {
+    
     return (
       <article>
         
@@ -6,7 +7,6 @@ export default function BettingTemplate({ data }) {
         
         <h1>{data.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: data.excerpt }} />
-
 
         <details className='m-3'>
             <summary className='border p-3'>More slug info</summary>
