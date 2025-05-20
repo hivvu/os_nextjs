@@ -1,0 +1,160 @@
+.content {
+  @apply container mx-auto my-20 box-border;
+
+  &__inner {
+    @apply md:grid md:grid-cols-12 md:gap-12;
+
+    &__content {
+      @apply md:col-span-9;
+
+      &__text {
+        &__item {
+          @apply mb-12 lg:mb-14 text-black leading-6;
+
+          &:last-child {
+            @apply pb-0;
+          }
+
+          a {
+            @apply font-inter font-semibold leading-4 no-underline text-primary;
+          }
+
+          a:hover {
+            @apply text-secondary;
+          }
+
+          a::selection {
+            @apply text-interactive-neutral;
+          }
+
+          ul {
+            @apply list-square p-0 my-8 ml-6 flex flex-col gap-4;
+            ::marker {
+              @apply text-primary;
+            }
+            li {
+              @apply pl-6;
+            }
+          }
+
+          ol {
+            @apply p-0 flex flex-col gap-4 my-8;
+            counter-reset: item;
+            list-style-type: none;
+            li {
+              @apply pl-10 relative;
+
+              &:before {
+                @apply text-caption-text text-sm font-semibold bg-surface-soft rounded-full w-6 h-6 flex items-center justify-center;
+                @apply absolute left-0;
+                content: counter(item) "  ";
+                counter-increment: item;
+              }
+            }
+
+            &[start] {
+              counter-reset: attr(start, number);
+            }
+          }
+
+          blockquote {
+            @apply border-0 border-l-4 border-solid border-primary m-0 pl-6 mt-12;
+          }
+
+          /* Select only child '>' elements from content to exclude elements from child components */
+          /* Select div child 'div >' elements for when shortcodes are processed and add an extra div layer*/
+          & > img,
+          & > p > img,
+          & > div > img,
+          & > div > p > img {
+            @apply max-w-full h-auto rounded-md;
+
+            &.alignnone {
+              @apply block;
+            }
+
+            &.aligncenter {
+              @apply block mx-auto;
+            }
+
+            &.alignleft {
+              @apply float-left mr-5 my-5;
+            }
+
+            &.alignright {
+              @apply float-right ml-5 my-5;
+            }
+          }
+
+          & > figure,
+          & > p > figure,
+          & > div > figure,
+          & > div > p > figure {
+            @apply max-w-full !important;
+            @apply ml-0 mr-5 my-4 overflow-hidden;
+
+            figcaption {
+              @apply font-inter text-sm text-gray-dark font-normal mt-1;
+            }
+
+            &.alignnone {
+              @apply block;
+            }
+
+            &.aligncenter {
+              @apply block mx-auto;
+            }
+
+            &.alignleft {
+              @apply float-left mr-5 my-5;
+            }
+
+            &.alignright {
+              @apply float-right ml-5 my-5;
+            }
+          }
+
+          & > h2,
+          & > h3,
+          & > div > h2,
+          & > div > h3 {
+            @apply mt-12;
+          }
+
+          & > h4,
+          & > h5,
+          & > div > h4,
+          & > div > h5 {
+            @apply mt-8;
+          }
+
+          table {
+            @apply my-4;
+          }
+
+          .advertiser-card {
+            @apply mb-6 !important;
+            &::last-child {
+              @apply mb-0 !important;
+            }
+          }
+        }
+      }
+
+      &__faq {
+        @apply mt-16;
+        &--subtitle {
+          @apply mt-4 md:mb-8 mb-0;
+        }
+      }
+
+      &__share {
+        @apply mt-14 pt-14 border-0 border-t border-solid border-gray-light;
+      }
+    }
+
+    &__sidebar {
+      @apply hidden md:block md:col-span-3;
+    }
+  }
+}

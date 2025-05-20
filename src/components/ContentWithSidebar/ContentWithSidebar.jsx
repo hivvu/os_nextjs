@@ -5,7 +5,7 @@
 import classNames from 'classnames';
 
 
-const ContentWithSidebar = ({ children, sidebar, sidebarPosition, className }) => {
+export default async function ContentWithSidebar({ children, sidebar, sidebarPosition, className }) {
 
     const contentWithSidebarClass = classNames(
         "content-with-sidebar",
@@ -33,4 +33,3 @@ const ContentWithSidebar = ({ children, sidebar, sidebarPosition, className }) =
     );
 };
 
-export default ContentWithSidebar;

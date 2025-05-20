@@ -1,0 +1,20 @@
+.toc {
+  .toc-list {
+    @apply list-none m-0 p-0;
+    &:first-child {
+      //@apply m-0 p-0; // Don't know if the design team will want some padding difference between the first and the rest of the list
+    }
+    &-item {
+      .toc-link {
+        @apply text-interactive-disabled text-base font-normal no-underline block w-full border-0 border-r-2 border-solid border-gray-light py-3 pr-5 box-border;
+        &.is-active-link {
+          @apply border-primary text-primary font-semibold;
+        }
+      }
+
+      .toc-list {
+        @apply ml-2 pl-3 border-0 border-l border-solid border-gray-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.share {
+  &__inner {
+    @apply flex flex-col gap-7;
+
+    &__title {
+      @apply font-semibold text-xl;
+    }
+
+    &__icons {
+      @apply flex flex-col md:flex-row gap-5 justify-center items-center box-border;
+
+      .button {
+        @apply transition-all duration-300 ease-in-out;
+
+        svg path {
+          @apply transition-all duration-300 ease-in-out;
+        }
+      }
+    }
+  }
+}

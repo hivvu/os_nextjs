@@ -11,12 +11,15 @@
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "classnames": "^2.5.1",
+    "html-react-parser": "^5.2.5",
     "next": "15.3.2",
     "next-i18n-router": "^5.5.2",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "sass": "^1.88.0"
+    "react-sticky-box": "^2.0.5",
+    "sass": "^1.88.0",
+    "tocbot": "^4.36.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

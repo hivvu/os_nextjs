@@ -1,0 +1,72 @@
+.author-card {
+  @apply mt-12 border border-solid border-gray-light rounded-lg p-7 md:p-10 flex flex-col gap-3;
+
+  &__top {
+    @apply flex gap-5 items-start;
+
+    &__avatar {
+      img {
+        @apply w-12 h-12 rounded-full;
+      }
+    }
+
+    &__info {
+      @apply flex flex-1 flex-col md:items-start items-center;
+
+      &--name {
+        @apply flex md:items-start items-center md:justify-start gap-4 justify-between;
+        div {
+          @apply font-semibold text-lg;
+        }
+        span {
+          @apply bg-surface-soft text-sm rounded-full font-semibold py-0.5 px-2;
+        }
+      }
+
+      &--count {
+        @apply font-semibold text-base text-caption-text w-full max-w-28;
+      }
+    }
+
+    &__social {
+      @apply hidden md:flex gap-2;
+
+      .social-media-item {
+        @apply flex items-center justify-center w-10 h-10 rounded-full border border-solid border-gray-light cursor-pointer;
+
+        svg {
+          @apply w-5 h-5;
+        }
+
+        &:hover {
+          svg {
+            filter: brightness(0) saturate(100%) invert(26%) sepia(36%)
+              saturate(1679%) hue-rotate(130deg) brightness(102%) contrast(92%);
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    @apply font-normal;
+  }
+
+  &__social {
+    @apply md:hidden flex gap-2;
+
+    .social-media-item {
+      @apply flex items-center justify-center w-10 h-10 rounded-full border border-solid border-gray-light;
+
+      svg {
+        @apply w-5 h-5;
+      }
+
+      &:hover {
+        svg {
+          filter: brightness(0) saturate(100%) invert(26%) sepia(36%) saturate(1679%) hue-rotate(130deg) brightness(102%) contrast(92%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.social-media-item {
+    a {
+        @apply flex;
+    }
+
+    svg {
+      @apply w-5 h-auto;
+    }
+}

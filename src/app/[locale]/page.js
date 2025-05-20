@@ -20,5 +20,5 @@ export default async function Home({ params }) {
     if (data.type !== "homepage")
         return notFound();
 
-    return <HomepageTemplate data={data} config={config} />;
+    return <HomepageTemplate data={data} config={config} locale={locale} />;
 }

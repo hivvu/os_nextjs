@@ -1,6 +1,11 @@
-import ContentWithSidebar from '@/components/ContentWithSidebar/ContentWithSidebar';
+import { Content, ContentWithSidebar } from '@/components';
+import { wpFetch } from '@/lib/wp-fetch';
 
-export default function HomepageTemplate({ data, config }) {
+export default async function HomepageTemplate({ data, locale, config }) {
+
+  const content = await wpFetch(locale, `/os/api/page?slug=${data.slug}`, {
+    next: { revalidate: 60 },
+  });
 
   return (
     <article>
@@ -23,6 +28,7 @@ export default function HomepageTemplate({ data, config }) {
       <ContentWithSidebar sidebar={<div>SIDEBAR</div>} >
         CONTENT
       </ContentWithSidebar>
+      <Content data={content} config={config} />
 
 
     </article>

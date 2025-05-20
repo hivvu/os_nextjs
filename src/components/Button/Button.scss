@@ -1,0 +1,262 @@
+.button {
+  $btn: &;
+  @apply rounded-full flex items-center font-semibold text-base gap-3 cursor-pointer no-underline text-white whitespace-nowrap leading-[1px] !important;
+  @apply bg-white px-5 border box-border !important;
+  @apply h-12 py-2.5 justify-center transition-all duration-300 ease-in-out;
+
+  svg {
+    @apply w-[17px] h-[17px];
+  }
+
+  &--block {
+    @apply h-auto w-full;
+  }
+
+  &--center {
+    @apply justify-center !important;
+  }
+
+  &--primary {
+    @apply border-solid border-primary bg-primary text-white !important;
+    @apply transition-all duration-300 ease-in-out;
+
+    svg {
+      stroke {
+        @apply fill-white;
+      }
+    }
+    &:hover {
+      @apply border border-secondary bg-secondary !important;
+    }
+  }
+
+  &--primary-alt {
+    @apply border-solid border-interactive-hover bg-interactive-hover text-white !important;
+    svg {
+      stroke {
+        @apply fill-white;
+      }
+    }
+    &:hover {
+      @apply bg-opacity-85;
+    }
+  }
+
+  &--danger {
+    @apply bg-[#FFEBEC] text-[#681219] border border-[#FFEBEC] border-solid !important;
+
+    svg {
+      path {
+        @apply stroke-danger-feedback;
+      }
+    }
+
+    &:hover {
+      @apply border-danger-feedback bg-danger-feedback text-white !important;
+
+      svg {
+        path {
+          @apply stroke-white;
+        }
+      }
+    }
+  }
+
+  &--white {
+    @apply bg-white text-black border border-white border-solid !important;
+
+    svg {
+      path {
+        @apply stroke-danger-feedback;
+      }
+    }
+
+    &:hover {
+      @apply border-gray-light bg-gray-light !important;
+
+      svg {
+        path {
+          @apply stroke-white;
+        }
+      }
+    }
+  }
+
+  &--ghost {
+    @apply bg-transparent text-caption-text font-medium border-0 !important;
+    svg {
+      path {
+        @apply stroke-[#63686E];
+      }
+    }
+    &:hover {
+      @apply bg-surface-soft !important;
+    }
+
+    &.active {
+      @apply bg-[#F0FCF7] text-[#0A6657] !important;
+      svg {
+        path {
+          @apply stroke-primary;
+        }
+      }
+    }
+  }
+
+  &--secondary {
+    @apply border-solid border-secondary bg-secondary text-white  !important;
+    svg {
+      stroke {
+        @apply fill-white;
+      }
+      path {
+        @apply stroke-white;
+      }
+    }
+    &:hover {
+      @apply bg-opacity-85 !important;
+    }
+  }
+
+  &--line {
+    @apply bg-transparent border-solid border-interactive text-black !important;
+    @apply transition-all duration-300 ease-in-out;
+
+    svg {
+      path {
+        @apply stroke-caption-text !important;
+        @apply transition-all duration-300 ease-in-out;
+      }
+    }
+
+    &:hover {
+      @apply border-primary bg-primary text-white !important;
+      svg {
+        path {
+          @apply stroke-white !important;
+        }
+      }
+    }
+  }
+
+  &--icon {
+    @apply justify-between pr-4 !important;
+  }
+
+  &--only-icon {
+    @apply w-10 h-10 p-0 justify-center !important;
+    @apply border-solid border border-interactive;
+    @apply transition-all duration-300 ease-in-out;
+
+    svg path {
+      @apply transition-all duration-300 ease-in-out;
+    }
+
+    &:hover {
+      @apply border border-secondary;
+
+      svg path {
+        @apply stroke-secondary;
+      }
+    }
+
+    &.button--primary {
+      @apply border-primary;
+      &:hover {
+        @apply border-secondary;
+        svg path {
+          @apply stroke-white;
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    @apply bg-gray-light text-black cursor-not-allowed pointer-events-none border-0 border-gray-light justify-center opacity-50 !important;
+    span {
+      @apply p-0 text-interactive-disabled !important;
+    }
+    svg {
+      @apply fill-transparent !important;
+      path {
+        @apply fill-interactive-disabled !important;
+      }
+    }
+  }
+
+  &--inline {
+    @apply inline-flex !important;
+  }
+
+  &--reverse {
+    @apply flex-row-reverse flex pr-6 !important;
+  }
+
+  &--center {
+    @apply justify-center !important;
+  }
+
+  &--sharing-content {
+    @apply flex-1 py-4;
+
+    svg {
+      @apply w-5 h-5;
+    }
+
+    &:hover {
+      @apply transition-all duration-300 ease-in-out;
+
+      svg {
+        path {
+          @apply fill-white;
+        }
+      }
+    }
+
+    &.icon-facebook {
+      @apply bg-[#F1F6FF] text-[#375998] border-none !important;
+      &:hover {
+        @apply bg-[#375998] text-white !important;
+      }
+    }
+
+    &.icon-whatsapp {
+      @apply bg-[#F3FFF3] text-[#008000] border-none !important;
+      &:hover {
+        @apply bg-[#00b200] text-white !important;
+      }
+    }
+
+    &.icon-x {
+      @apply bg-[#F2F2F2] text-black border-none !important;
+      &:hover {
+        @apply bg-black text-white !important;
+      }
+    }
+  }
+
+  &--sharing-neutral {
+    @apply border-[1.5px] border-solid border-gray-light;
+
+    svg {
+      @apply w-5 h-5;
+      path {
+        @apply fill-tertiary;
+      }
+    }
+
+    &:hover {
+      @apply transition-all duration-300 ease-in-out;
+      @apply border-solid border-gray-light;
+      svg {
+        path {
+          @apply fill-secondary;
+        }
+      }
+    }
+  }
+}
+
+button.button {
+  @apply h-10;
+}
