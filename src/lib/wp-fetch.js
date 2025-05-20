@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import i18nConfig from '@/i18nConfig';
 
 const DEV = process.env.NODE_ENV === 'development';
 const CMS_URL = process.env.CMS_URL;
@@ -11,8 +12,9 @@ const AUTH_HEADER = 'Basic ' + Buffer.from(`${process.env.CMS_USER}:${process.en
  * @param {object} options - Configurações adicionais do fetch
  */
 export async function wpFetch(locale, endpoint, options = {}) {
+
     // Construct the full endpoint URL with or without locale prefix
-    let endpointUrl = locale == 'uk' ? `${CMS_URL}/wp-json${endpoint}` : `${CMS_URL}/${locale}/wp-json${endpoint}`;
+    let endpointUrl = locale === i18nConfig.defaultLocale ? `${CMS_URL}/wp-json${endpoint}` : `${CMS_URL}/${locale}/wp-json${endpoint}`;
 
     // Debug logging in development environment
     if (DEV) {

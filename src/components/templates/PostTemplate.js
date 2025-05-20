@@ -3,20 +3,20 @@ import { wpFetch } from '@/lib/wp-fetch';
 import React from 'react';
 
 export default async function PostTemplate({ data, locale }) {
-    const article = await wpFetch(locale, `/os/api/post?slug=${data.slug}`, {
-      next: { revalidate: 60 },
-    });
-    
-    const schema = {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      name: data.title,
-      image: "image",
-      description: data.description,
-    }
+  const article = await wpFetch(locale, `/os/api/post?slug=${data.slug}`, {
+    next: { revalidate: 60 },
+  });
 
-    return (
-      <>
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    name: data.title,
+    image: "image",
+    description: data.description,
+  }
+
+  return (
+    <>
       {/* Schemas */}
       <script
         type="application/ld+json"
@@ -26,39 +26,41 @@ export default async function PostTemplate({ data, locale }) {
       <div className="p-7">
         <h1 className="text-3xl font-bold mb-6">{data.title}</h1>
 
-        <Image
-            src={article.thumbnail?.url || '/placeholder.jpg'}
+        {article.featured_image && (
+          <Image
+            src={article.featured_image}
             alt={article.thumbnail?.alt || article.title}
             width={article.thumbnail?.width || 600}
             height={article.thumbnail?.height || 400}
             className="object-cover rounded-md mb-4"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
+        )}
 
         <div className="mb-4 border-2 p-4">
           <span className="block" id={article.author?.id}>
-            <strong>Author: </strong> 
+            <strong>Author: </strong>
             {article.collaborators?.author?.name}
           </span>
 
           <span className="block" id={article.reviewer?.id}>
-            <strong>Colaborator: </strong> 
+            <strong>Colaborator: </strong>
             {article.collaborators?.reviewer?.name}
           </span>
 
           <span className="block" id={article.reviewer?.id}>
-            <strong>Published date: </strong> 
+            <strong>Published date: </strong>
             {article.dates?.published_date}
           </span>
-          
+
           <span className="block" id={article.reviewer?.id}>
-            <strong>Updated date: </strong> 
+            <strong>Updated date: </strong>
             {article.dates?.updated_date}
           </span>
         </div>
 
         <div className="text-lg mb-4 border-2 p-4">
-          <p>{ article.excerpt }</p>
+          <p>{article.excerpt}</p>
         </div>
 
         <div className="text-lg mb-4 border-2 p-4">
@@ -74,7 +76,7 @@ export default async function PostTemplate({ data, locale }) {
                 return (
                   <div key={index} className="mb-6">
                     {hasHeading && React.createElement(HeadingTag, { className: "mb-2" }, block.heading.title)}
-                    
+
                     {hasText && (
                       <div
                         dangerouslySetInnerHTML={{ __html: block.text }}
@@ -86,9 +88,8 @@ export default async function PostTemplate({ data, locale }) {
               })}
           </div>
         </div>
-        
+
       </div>
-      </>
-    );
-  }
-  
+    </>
+  );
+}
