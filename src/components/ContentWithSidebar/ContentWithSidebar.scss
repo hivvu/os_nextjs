@@ -1,0 +1,23 @@
+.content-with-sidebar {
+  @apply container mx-auto box-border py-6;
+
+  &__container {
+    @apply md:grid grid-cols-12 gap-16;
+
+    &__sidebar {
+      @apply col-span-12 md:col-span-3 md:block hidden;
+
+      &--left {
+        @apply md:order-first;
+      }
+
+      &--right {
+        @apply md:order-last;
+      }
+    }
+
+    &__content {
+      @apply col-span-12 md:col-span-9;
+    }
+  }
+}

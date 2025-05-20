@@ -1,13 +1,14 @@
-import { slugResolver } from '@/utils/slug-resolver';
-import { cache } from 'react'
-import PostTemplate from '@/components/Templates/PostTemplate';
-import CalculatorTemplate from '@/components/Templates/CalculatorTemplate';
-import PageTemplate from '@/components/Templates/PageTemplate';
-import BettingTemplate from '@/components/Templates/BettingTemplate';
-import TermTemplate from '@/components/Templates/TermTemplate';
-import HomepageTemplate from '@/components/Templates/HomepageTemplate';
+import BettingTemplate from '@/Templates/BettingTemplate';
+import CalculatorTemplate from '@/Templates/CalculatorTemplate';
+import HomepageTemplate from '@/Templates/HomepageTemplate';
+import PageTemplate from '@/Templates/PageTemplate';
+import PostTemplate from '@/Templates/PostTemplate';
+import TermTemplate from '@/Templates/TermTemplate';
 import i18nConfig from '@/i18nConfig';
+import { wpFetch } from '@/lib/wp-fetch';
+import { slugResolver } from '@/utils/slug-resolver';
 import { notFound } from 'next/navigation';
+import { cache } from 'react';
 
 // Wrap slugResolver in React's cache to memoize results by slug
 // This ensures slugResolver is only called once per slug during rendering
@@ -21,45 +22,37 @@ export async function generateMetadata({ params }) {
 
   // Validate locale before proceeding
   if (!i18nConfig.locales.includes(locale)) {
-    return notFound();
+    return;
   }
 
-  try {
-    // Fetch data for the given slug
-    const data = await getSlugData(locale, slug);
+  // Fetch data for the given slug - don't wrap in try/catch to let notFound() propagate
+  const data = await getSlugData(locale, slug);
 
-    return {
-      title: data.seo?.title || data.title || 'Odds Scanner',
-      description: data.seo?.meta_description || 'Best site eva!',
-      openGraph: {
-        title: data.seo?.meta_title,
-        description: data.seo?.meta_description,
-        url: data.slug,
-        siteName: 'Odds Scanner',
-      },
-      robots: {
-        index: data.seo?.meta_no_index,
+  return {
+    title: data.seo?.title || data.title || 'Odds Scanner',
+    description: data.seo?.meta_description || 'Best site eva!',
+    openGraph: {
+      title: data.seo?.meta_title,
+      description: data.seo?.meta_description,
+      url: data.slug,
+      siteName: 'Odds Scanner',
+    },
+    robots: {
+      index: data.seo?.meta_no_index,
+      follow: true,
+      googleBot: {
+        index: true,
         follow: true,
-        googleBot: {
-          index: true,
-          follow: true,
-          "max-video-preview": -1,
-          "max-image-preview": "large",
-          "max-snippet": -1,
-        },
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
-      icons: {
-        shortcut: "/favicon/web-app-manifest-512x512.png",
-      },
-      keywords: "keywords 1, keywords 2, keywords 3",
-    };
-  } catch (error) {
-    console.error('Error in generateMetadata:', error);
-    return {
-      title: 'Error',
-      description: 'An error occurred while loading the page',
-    };
-  }
+    },
+    icons: {
+      shortcut: "/favicon/web-app-manifest-512x512.png",
+    },
+    keywords: "keywords 1, keywords 2, keywords 3",
+  };
 }
 
 const templatesMap = {
@@ -84,6 +77,10 @@ export default async function Page({ params }) {
     // Fetch data for the given slug
     const data = await getSlugData(locale, slug);
 
+    const config = await wpFetch(locale, `/os/api/all`, {
+      next: { revalidate: 60 },
+    });
+
     // Determine which React component (template) to use based on data.type
     const Template = templatesMap[data.type];
 
@@ -91,7 +88,7 @@ export default async function Page({ params }) {
     if (!Template) return notFound();
 
     // Prepare props to pass into the selected template
-    const props = { data, locale };
+    const props = { data, locale, config };
 
     return <Template {...props} />;
   } catch (error) {

@@ -7,7 +7,6 @@
 import "@/styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ConfigProvider } from '@/lib/configContext';
 import { wpFetch } from '@/lib/wp-fetch';
 import i18nConfig from '@/i18nConfig';
 import { notFound } from 'next/navigation';
@@ -30,14 +29,12 @@ export default async function Layout(props) {
     console.error('Error fetching config:', error);
   }
 
+
   return (
     <html lang={locale}>
       <body>
         <Header config={config} />
-        <ConfigProvider config={config}>
-          {children}
-        </ConfigProvider>
-
+        {children}
         <Footer config={config} />
       </body>
     </html>

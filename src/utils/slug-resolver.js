@@ -22,9 +22,9 @@ export async function slugResolver(locale, slug) {
   //   locale = slugSegments[0];
   // }
 
-  console.log('Validated locale:', locale);
-  console.log('localeSlug:', localeSlug);
-  console.log('slugPath:', slugPath);
+  // console.log('Validated locale:', locale);
+  // console.log('localeSlug:', localeSlug);
+  // console.log('slugPath:', slugPath);
 
   const data = await wpFetch(
     locale,

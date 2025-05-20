@@ -33,7 +33,7 @@ export async function wpFetch(locale, endpoint, options = {}) {
     // Handle non-OK responses by returning a 404 Not Found and throwing an error
     if (!res.ok) {
         notFound();
-        throw new Error(`Error on fetching ${endpointUrl}: ${res.status}`);
+        // throw new Error(`Error on fetching ${endpointUrl}: ${res.status}`);
     }
 
     return res.json();
