@@ -4,7 +4,7 @@ import './SocialMediaList.scss';
 // Components
 import SocialMediaItem from './SocialMediaItem/SocialMediaItem';
 
-const SocialMediaList = ({ socialMedia, target }) => {
+export default async function SocialMediaList ({ socialMedia, target }) {
     if (!socialMedia) return null;
 
     return (
@@ -15,5 +15,3 @@ const SocialMediaList = ({ socialMedia, target }) => {
         </>
     );
 }
-
-export default SocialMediaList;

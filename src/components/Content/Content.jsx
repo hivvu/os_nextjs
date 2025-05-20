@@ -3,7 +3,7 @@ import './Content.scss';
 import Toc from './Toc/Toc';
 
 export default async function Content ({ data, config, author, pros_cons }) {
-    console.log('content here', data.content);
+    // console.log('content here', data.content);
     const content = data?.content?.content;
     const faq = data?.content?.faq;
     const share = config?.strings?.share;

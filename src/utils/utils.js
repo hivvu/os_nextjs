@@ -37,25 +37,25 @@ export const utils = {
             className: `os-toast ${type || 'default'}`,
         };
 
-        switch (type) {
-            case "error":
-                toast.error((t) => getContent(t), {
-                    ...toastOptions,
-                    icon: <div className="os-toast__icon"><Svg name="icon-close-alt" /></div>
-                });
-                break;
-            case "success":
-                toast.success((t) => getContent(t), {
-                    ...toastOptions,
-                    icon: <div className="os-toast__icon"><Svg name="icon-check" /></div>
-                });
-                break;
-            default:
-                toast((t) => getContent(t), {
-                    ...toastOptions,
-                    icon: <div className="os-toast__icon"><Svg name="icon-info-alt" /></div>
-                });
-        }
+        // switch (type) {
+        //     case "error":
+        //         toast.error((t) => getContent(t), {
+        //             ...toastOptions,
+        //             icon: <div className="os-toast__icon"><Svg name="icon-close-alt" /></div>
+        //         });
+        //         break;
+        //     case "success":
+        //         toast.success((t) => getContent(t), {
+        //             ...toastOptions,
+        //             icon: <div className="os-toast__icon"><Svg name="icon-check" /></div>
+        //         });
+        //         break;
+        //     default:
+        //         toast((t) => getContent(t), {
+        //             ...toastOptions,
+        //             icon: <div className="os-toast__icon"><Svg name="icon-info-alt" /></div>
+        //         });
+        // }
 
         return true;
     },
