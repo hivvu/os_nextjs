@@ -1,18 +1,8 @@
 'use client';
-
-// Context
-// import { useTheme } from '@/context/Theme';
-
-// Components
 import { Heading } from '@/components';
-
-// Styles
 import './ProsCons.scss';
 
 const ProsCons = ({ data, pros, cons }) => {
-
-    // const { data } = useTheme();
-
     return (
         <div className="pros-cons">
 

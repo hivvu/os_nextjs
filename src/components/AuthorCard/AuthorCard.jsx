@@ -1,19 +1,9 @@
 'use client';
-
-// Styles
-import './AuthorCard.scss';
-
-// Components
 import { SocialMediaList } from '@/components';
 import Image from 'next/image';
-
-// Context
-// import { useTheme } from '@/context/Theme';
-
+import './AuthorCard.scss';
 
 const AuthorCard = ({ data, author }) => {
-
-    //  const { data } = useTheme();
 
     return (
         <div className="author-card">

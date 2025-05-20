@@ -1,9 +1,5 @@
-// Styles
-// import './ContentWithSidebar.scss';
-
-// Utils
 import classNames from 'classnames';
-
+import './ContentWithSidebar.scss';
 
 export default async function ContentWithSidebar({ children, sidebar, sidebarPosition, className }) {
 

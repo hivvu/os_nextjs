@@ -1,12 +1,8 @@
 'use client';
 import { useEffect } from "react";
-import tocbot from 'tocbot';
-
-// Styles
-import './Toc.scss';
-
-// Components
 import StickyBox from "react-sticky-box";
+import tocbot from 'tocbot';
+import './Toc.scss';
 
 export default function Toc () {
 

@@ -1,21 +1,10 @@
 'use client';
-
-// React
-import { useEffect, useState } from 'react';
-
-// Styles
-import './Share.scss';
-
-// Components
 import { Button } from '@/components';
-
-// Context
-// import { useTheme } from '@/context/Theme';
-
+import { useEffect, useState } from 'react';
+import './Share.scss';
 
 export default function Share ({ data, title, buttonLabels, buttonType, email, facebook, whatsapp, x, linkedin, all}) {
 
-    // const { data } = useTheme();
     const [url, setUrl] = useState('');
 
     useEffect(() => {
@@ -41,31 +30,31 @@ export default function Share ({ data, title, buttonLabels, buttonType, email, f
     const sharingArray = [
         {
             render: email,
-            icon: 'icon-email',
+            icon: '/svg/icon-email.svg',
             url: `mailto:?subject=${title}&body=Share:%20${title}%20${url}`,
             label: null // update if required
         },
         {
             render: facebook,
-            icon: 'icon-facebook',
+            icon: '/svg/icon-facebook.svg',
             url: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
             label: data.facebook_label
         },
         {
             render: whatsapp,
-            icon: 'icon-whatsapp',
+            icon: '/svg/icon-whatsapp.svg',
             url: `https://api.whatsapp.com/send?text=${url}`,
             label: data.whatsapp_label
         },
         {
             render: x,
-            icon: 'icon-x',
+            icon: '/svg/icon-x.svg',
             url: `https://twitter.com/intent/tweet?url=${url}`,
             label: data.twitter_label
         },
         {
             render: linkedin,
-            icon: 'icon-linkedin',
+            icon: '/svg/icon-linkedin.svg',
             url: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
             label: null // update if required
         }
@@ -89,6 +78,8 @@ export default function Share ({ data, title, buttonLabels, buttonType, email, f
                             key={index}
                             label={buttonLabels && item.label}
                             icon={item.icon}
+                            iconWidth={20}
+                            iconHeight={20}
                             onClick={() => openPopup(item.url)}
                         />;
                     })}

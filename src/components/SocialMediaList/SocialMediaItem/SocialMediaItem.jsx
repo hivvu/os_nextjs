@@ -1,5 +1,3 @@
-// Components
-// import { Svg } from '@/components';
 import Link from 'next/link';
 
 export default async function SocialMediaItem ({ name, url, target }) {

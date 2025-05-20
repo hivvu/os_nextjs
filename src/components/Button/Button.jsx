@@ -1,11 +1,13 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
-// import { Svg, InlineSvg } from '@/components';
 import './Button.scss';
 
 const Button = ({
     label,
     icon,
+    iconWidth,
+    iconHeight,
     onClick,
     className,
     type = 'button',
@@ -40,13 +42,7 @@ const Button = ({
             {label && <span>{label}</span>}
             {icon && (
                 <span className="button__icon">
-                    {typeof icon === 'string' && !icon.includes('.') ? (
-                        // <Svg name={icon} />
-                        <img src={icon} alt={label} />
-                    ) : (
-                        // icon && <InlineSvg svgUrl={icon} />
-                        <img src={icon} alt={label} />
-                    )}
+                    <Image src={icon} alt={label} width={iconWidth} height={iconHeight} />
                 </span>
             )}
             {custom}

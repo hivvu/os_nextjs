@@ -1,8 +1,5 @@
-// Styles
-import './SocialMediaList.scss';
-
-// Components
 import SocialMediaItem from './SocialMediaItem/SocialMediaItem';
+import './SocialMediaList.scss';
 
 export default async function SocialMediaList ({ socialMedia, target }) {
     if (!socialMedia) return null;
