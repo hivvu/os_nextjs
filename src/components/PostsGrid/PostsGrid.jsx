@@ -5,7 +5,7 @@ import './PostsGrid.scss';
 // Utils
 import classNames from 'classnames';
 
-export default async function PostsGrid({ PostCard, items, icon, config, cols, noScroll }) {
+export default async function PostsGrid({ PostCard, items, icon, config, cols, noScroll, title, btnUrl }) {
     // Check if PostGrid has items and if items is an array with at least one item
     if(!items || !Array.isArray(items) || items.length === 0) return null;
 
@@ -27,8 +27,8 @@ export default async function PostsGrid({ PostCard, items, icon, config, cols, n
                     iconHeight={20} 
                     label={config?.strings?.general?.see_all} 
                     icon={icon} 
-                    title={config?.strings?.articles?.articles} 
-                    btnUrl={config?.sections?.related_content?.articles?.see_all_url}
+                    title={title} 
+                    btnUrl={btnUrl}
                  />
                 }
 

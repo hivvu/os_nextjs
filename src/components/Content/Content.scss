@@ -134,7 +134,7 @@
 
           .advertiser-card {
             @apply mb-6 !important;
-            &::last-child {
+            &:last-child {
               @apply mb-0 !important;
             }
           }

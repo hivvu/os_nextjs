@@ -8,7 +8,7 @@ export default function Header({ config }) {
         <h1>Odds Scanner</h1>
 
         <nav>
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-4" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', gap: '10px' }}>
             <li><Link href="/">Homepage UK</Link></li>
             <li><Link href="/pt">Homepage PT</Link></li>
             <li><Link href="/es">Homepage ES</Link></li>
@@ -19,7 +19,7 @@ export default function Header({ config }) {
         </nav>
 
         <nav>
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-4" style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', gap: '10px' }}>
             <li><Link href="/br/artigos">Artigos (BR)</Link></li>
             <li><Link href="/pt/artigos">Artigos (PT)</Link></li>
             <li><Link href="/br/artigos/guias">Guias (BR)</Link></li>

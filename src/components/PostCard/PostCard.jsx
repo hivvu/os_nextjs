@@ -18,10 +18,12 @@ const PostCard = ({ item: post }) => {
                         <Image 
                         src={post.thumbnail.url} 
                         alt={post.thumbnail.alt ? post.thumbnail.alt : post.title} 
-                        width={post.thumbnail.width} 
-                        height={post.thumbnail.height} 
-                        quality={60}
-                        className='object-cover object-top'
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 15vw, 15vw"
+                        // width={post.thumbnail.width} 
+                        // height={post.thumbnail.height} 
+                        quality={90}
+                        // className='object-cover object-top'
                         />
                     </div>
                 </div>

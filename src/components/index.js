@@ -12,4 +12,5 @@ export { default as PostsGrid } from './PostsGrid/PostsGrid';
 export { default as ProsCons } from './ProsCons/ProsCons';
 export { default as Share } from './Share/Share';
 export { default as SocialMediaList } from './SocialMediaList/SocialMediaList';
+export { default as ThemeScripts } from './ThemeScripts/ThemeScripts';
 

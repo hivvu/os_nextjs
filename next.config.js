@@ -8,7 +8,11 @@ const nextConfig = {
         pathname: '/**',
       },
     ]
-  }
+  },
+  sassOptions: {
+    includePaths: ['./src/styles'],
+    silenceDeprecations: ['legacy-js-api'],
+  },
 };
 
 module.exports = nextConfig;

@@ -1,0 +1,17 @@
+.not-found {
+  &__container {
+    @apply container mx-auto block relative z-10 py-40;
+    &__inside {
+      @apply flex flex-col items-center justify-center gap-4;
+      &--bg {
+        @apply text-[240px] text-[#C7C9CC] font-semibold opacity-25 flex leading-none -z-10 font-sora;
+      }
+      &--title {
+        @apply text-center max-w-xl -mt-28;
+      }
+      &--text {
+        @apply text-center max-w-xl text-base mb-5;
+      }
+    }
+  }
+}
