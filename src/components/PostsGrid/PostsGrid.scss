@@ -1,0 +1,41 @@
+.posts-grid {
+  @apply mb-0 md:mb-20 border-0 border-b-8 border-solid border-surface-soft md:border-b-0;
+
+  .heading-icon {
+    @apply pt-5 md:pt-0 mb-0 md:mb-8;
+  }
+
+  &__container {
+    @apply md:container mx-auto box-border;
+    &__list {
+      @apply flex md:grid grid-cols-1 gap-6 lg:gap-8 overflow-auto md:overflow-hidden whitespace-nowrap md:whitespace-normal px-4 md:px-0 py-8 md:py-0;
+
+      &--cols-1 {
+        @apply md:grid-cols-1;
+      }
+
+      &--cols-2 {
+        @apply md:grid-cols-2;
+      }
+
+      &--cols-3 {
+        @apply md:grid-cols-3;
+      }
+
+      &--cols-4 {
+        @apply md:grid-cols-4;
+      }
+
+      > div {
+        @apply w-80 min-w-[70vw] md:w-auto md:min-w-1 !important;
+      }
+
+      &--mobile {
+        @apply md:overflow-auto overflow-hidden md:flex-row flex-col;
+        > div {
+          @apply w-full md:w-auto md:min-w-1 !important;
+        }
+      }
+    }
+  }
+}

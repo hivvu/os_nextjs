@@ -6,6 +6,9 @@ export { default as ContentWithSidebar } from './ContentWithSidebar/ContentWithS
 export { default as Button } from './Button/Button';
 export { default as Heading } from './Heading/Heading';
 // export { default as LatestArticles } from './LatestArticles/LatestArticles';
+export { default as HeadingIcon } from './HeadingIcon/HeadingIcon';
+export { default as PostCard } from './PostCard/PostCard';
+export { default as PostsGrid } from './PostsGrid/PostsGrid';
 export { default as ProsCons } from './ProsCons/ProsCons';
 export { default as Share } from './Share/Share';
 export { default as SocialMediaList } from './SocialMediaList/SocialMediaList';

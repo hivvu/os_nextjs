@@ -1,0 +1,18 @@
+.heading-icon {
+  @apply mb-8 flex justify-between;
+  &--title {
+    @apply flex gap-4 items-center;
+    h3 {
+      @apply md:text-2xl text-base;
+    }
+    span {
+      @apply flex items-center justify-center md:w-12 md:h-12 w-8 h-8 rounded-full border border-gray-light border-solid;
+      svg {
+        @apply w-3 h-3 md:w-[18px] md:h-[18px];
+        path {
+          @apply stroke-primary;
+        }
+      }
+    }
+  }
+}

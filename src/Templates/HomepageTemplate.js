@@ -1,9 +1,17 @@
-import { Content, ContentWithSidebar } from '@/components';
+import { Content, ContentWithSidebar, PostCard, PostsGrid } from '@/components';
 import { wpFetch } from '@/lib/wp-fetch';
 
 export default async function HomepageTemplate({ data, locale, config }) {
 
   const content = await wpFetch(locale, `/os/api/page?slug=${data.slug}`, {
+    next: { revalidate: 60 },
+  });
+
+  const articles = await wpFetch(locale, `/os/api/posts?per_page=4&page=1`, {
+    next: { revalidate: 60 },
+  });
+
+  const tips = await wpFetch(locale, `/os/api/betting-tips?per_page=4`, {
     next: { revalidate: 60 },
   });
 
@@ -28,6 +36,10 @@ export default async function HomepageTemplate({ data, locale, config }) {
       <ContentWithSidebar sidebar={<div>SIDEBAR</div>} >
         CONTENT
       </ContentWithSidebar>
+      <PostsGrid icon="/svg/icon-globe.svg" PostCard={PostCard} config={config} items={articles} />
+
+      {/* <PostsGrid icon="icon-paper" PostCard={PostCard} title={config.sections.related_content.betting_tips.title} items={tips} btnUrl={templateData.tips_url} /> */}
+
       <Content data={content} config={config} />
 
 
