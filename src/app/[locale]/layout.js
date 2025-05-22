@@ -18,15 +18,15 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
+  // weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  // style: ['normal', 'italic'],
 });
 
 const sora = Sora({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sora',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+  // weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
 });
 
 export default async function Layout(props) {
