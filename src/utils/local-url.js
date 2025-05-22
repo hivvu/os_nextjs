@@ -9,12 +9,12 @@
  * @returns {string} - A relative path if on localhost, otherwise the original URL.
  */
 export function transformLink(url) {
-    const isLocal = process.env.NODE_ENV === 'development';
+    // const isLocal = process.env.NODE_ENV === 'development';
 
     // Temporary: Force the URL to test the build and have links on local environment
     // const isLocal = true;
 
-    if (!isLocal) return url;
+    // if (!isLocal) return url;
   
     try {
       const parsed = new URL(url);

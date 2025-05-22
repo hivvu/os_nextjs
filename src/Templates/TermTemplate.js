@@ -1,4 +1,4 @@
-// import LatestArticles from "@/components/LatestArticles";
+import { LatestArticles } from "@/components";
 
 export default async function TermTemplate({ data }) {
 
@@ -19,7 +19,7 @@ export default async function TermTemplate({ data }) {
         </div>
       </details>
 
-      {/* <LatestArticles id={data.id} locale={data.locale} /> */}
+      <LatestArticles id={data.id} locale={data.locale} />
 
     </article>
   );

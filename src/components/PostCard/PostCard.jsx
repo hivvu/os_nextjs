@@ -3,6 +3,7 @@ import { shortcodes } from '@/utils';
 import Image from 'next/image';
 // import Link from 'next/link';
 import Link from '@/utils/link';
+import { transformLink } from '@/utils/local-url';
 import './PostCard.scss';
 
 export default async function PostCard({ item: post }) {
@@ -10,7 +11,7 @@ export default async function PostCard({ item: post }) {
 
     return (
         <div className="post-card" key={post.id}>
-            <Link className='post-card__area-link' href={post.url} />
+            <Link className='post-card__area-link' href={transformLink(post.url)} />
 
             {post.thumbnail && (
                 <div className="post-card__thumbnail">
