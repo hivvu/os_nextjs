@@ -1,13 +1,19 @@
 import { HeadingIcon } from '@/components';
+import { wpFetch } from '@/lib/wp-fetch';
 import './PostsGrid.scss';
 // import PostsGridHeading from './Heading/PostsGridHeading';
 
 // Utils
 import classNames from 'classnames';
 
-export default async function PostsGrid({ PostCard, items, icon, config, cols, noScroll, title, btnUrl }) {
+export default async function PostsGrid({ postType, perPage, page, locale, PostCard, icon, config, cols, noScroll, title, btnUrl }) {
+    
+    const items = await wpFetch(locale, `/os/api/${postType}?per_page=${perPage}&page=${page}`, {
+        // next: { revalidate: 60 },
+    });
     // Check if PostGrid has items and if items is an array with at least one item
     if(!items || !Array.isArray(items) || items.length === 0) return null;
+
 
     const gridColsClass = classNames({
         'posts-grid__container__list--cols-1': cols === 1,

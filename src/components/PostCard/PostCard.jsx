@@ -19,10 +19,10 @@ const PostCard = ({ item: post }) => {
                         src={post.thumbnail.url} 
                         alt={post.thumbnail.alt ? post.thumbnail.alt : post.title} 
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 15vw, 15vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
                         // width={post.thumbnail.width} 
                         // height={post.thumbnail.height} 
-                        quality={90}
+                        // quality={90}
                         // className='object-cover object-top'
                         />
                     </div>
