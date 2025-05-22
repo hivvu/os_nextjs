@@ -10,8 +10,24 @@ import Header from "@/components/Header";
 import i18nConfig from '@/i18nConfig';
 import { wpFetch } from '@/lib/wp-fetch';
 import "@/styles/global.scss";
+import { Inter, Sora } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
+});
+
+const sora = Sora({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sora',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+});
 
 export default async function Layout(props) {
   const params = await props.params;
@@ -32,7 +48,7 @@ export default async function Layout(props) {
   }
 
   return (
-    <html lang={config?.theme_options?.language?.iso_code}>
+    <html lang={config?.theme_options?.language?.iso_code} className={`${inter.variable} ${sora.variable}`}>
       <head>
         <meta name="application-name" content={config?.themeOptions?.meta?.title} />
         <meta name="apple-mobile-web-app-title" content={config?.themeOptions?.meta?.title} />
