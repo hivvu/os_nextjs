@@ -1,8 +1,7 @@
-'use client';
 import { Heading } from '@/components';
 import './ProsCons.scss';
 
-const ProsCons = ({ data, pros, cons }) => {
+export default async function ProsCons({ data, pros, cons }) {
     return (
         <div className="pros-cons">
 
@@ -33,5 +32,3 @@ const ProsCons = ({ data, pros, cons }) => {
         </div>
     );
 }
-
-export default ProsCons;

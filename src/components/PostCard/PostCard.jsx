@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from '@/utils/link';
 import './PostCard.scss';
 
-const PostCard = ({ item: post }) => {
+export default async function PostCard({ item: post }) {
     post.title = shortcodes.process(post.title); // Process the title with shortcodes
 
     return (
@@ -52,5 +52,3 @@ const PostCard = ({ item: post }) => {
         </div>
     );
 }
-
-export default PostCard;
