@@ -1,5 +1,5 @@
 'use client';
-import { SocialMediaList } from '@/components';
+import { SocialMediaList } from '@/Components';
 import Image from 'next/image';
 import './AuthorCard.scss';
 

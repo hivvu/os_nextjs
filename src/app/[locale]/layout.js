@@ -4,9 +4,9 @@
   - Retrieves request headers to set the HTML language attribute dynamically
   - Wraps content with Header and Footer components
 */
-import { ThemeScripts } from "@/components";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import { ThemeScripts } from "@/Components";
+// import Footer from "@/components/Footer";
+// import Header from "@/Components/Header";
 import i18nConfig from '@/i18nConfig';
 import { wpFetch } from '@/lib/wp-fetch';
 import "@/styles/global.scss";

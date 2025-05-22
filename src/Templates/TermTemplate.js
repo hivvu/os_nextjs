@@ -1,4 +1,4 @@
-import LatestArticles from "../components/LatestArticles";
+import LatestArticles from "../Components/LatestArticles";
 
 export default async function TermTemplate({ data }) {
 

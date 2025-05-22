@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@/components';
+import { Button } from '@/Components';
 import { useEffect, useState } from 'react';
 import './Share.scss';
 

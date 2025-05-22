@@ -1,4 +1,4 @@
-import { Content, ContentWithSidebar, PostCard, PostsGrid } from '@/components';
+import { Content, ContentWithSidebar, PostCard, PostsGrid } from '@/Components';
 import { wpFetch } from '@/lib/wp-fetch';
 import { Suspense } from 'react';
 

@@ -1,4 +1,4 @@
-import { HeadingIcon } from '@/components';
+import { HeadingIcon } from '@/Components';
 import { wpFetch } from '@/lib/wp-fetch';
 import './PostsGrid.scss';
 // import PostsGridHeading from './Heading/PostsGridHeading';
