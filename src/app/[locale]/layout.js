@@ -4,7 +4,7 @@
   - Retrieves request headers to set the HTML language attribute dynamically
   - Wraps content with Header and Footer components
 */
-import { ThemeScripts } from "@/Components";
+import { ThemeScripts } from "@/components";
 // import Footer from "@/components/Footer";
 // import Header from "@/Components/Header";
 import i18nConfig from '@/i18nConfig';
@@ -98,9 +98,9 @@ export default async function Layout(props) {
             }}
           />
         ))}
-        <Header config={config} />
+        {/* <Header config={config} /> */}
         {children}
-        <Footer config={config} />
+        {/* <Footer config={config} /> */}
       </body>
     </html>
   );

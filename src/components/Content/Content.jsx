@@ -1,4 +1,4 @@
-import { Accordion, AuthorCard, Heading, ProsCons, Share } from '@/Components';
+import { Accordion, AuthorCard, Heading, ProsCons, Share } from '@/components';
 import './Content.scss';
 import Toc from './Toc/Toc';
 

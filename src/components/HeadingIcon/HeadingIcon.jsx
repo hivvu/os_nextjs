@@ -1,4 +1,4 @@
-import { Button, Heading } from '@/Components';
+import { Button, Heading } from '@/components';
 import Img from 'next/image';
 import './HeadingIcon.scss';
 

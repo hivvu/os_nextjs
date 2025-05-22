@@ -1,4 +1,4 @@
-import { Heading } from '@/Components';
+import { Heading } from '@/components';
 import './ProsCons.scss';
 
 export default async function ProsCons({ data, pros, cons }) {
