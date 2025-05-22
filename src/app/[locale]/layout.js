@@ -5,7 +5,8 @@
   - Wraps content with Header and Footer components
 */
 import { ThemeScripts } from "@/components";
-import { Header, Footer } from "@/components";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import i18nConfig from '@/i18nConfig';
 import { wpFetch } from '@/lib/wp-fetch';
 import "@/styles/global.scss";

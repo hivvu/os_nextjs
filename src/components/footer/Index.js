@@ -1,4 +1,4 @@
-export function Footer({ config }) {
+export default function Footer({ config }) {
   // console.log(JSON.stringify(config, null, 2));
 
   return (
